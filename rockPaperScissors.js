@@ -6,12 +6,24 @@ let computerWins = 0;
 function computerPlay() {
     // randomly returns "Rock", "Paper", or "Scissors"
     let rng = Math.floor(Math.random() * 3)
-    if (rng < 1)
-        return "ROCK";
-    else if (rng < 2)
+    if (rng < 1){
+        selectAnimate("ROCK");
+        return "ROCK";}
+    else if (rng < 2){
+        selectAnimate("PAPER");
         return "PAPER";
-    else
+    }
+    else{
+        selectAnimate("SCISSORS");
         return "SCISSORS";
+    }
+}
+
+function selectAnimate(move) {
+    document.getElementById(move).classList.add("computerSelection");
+    setTimeout(() => { document.getElementById(move).classList.remove("computerSelection")}, 400);
+    setTimeout(() => { document.getElementById(move).classList.add("computerSelection")}, 500);
+    setTimeout(() => { document.getElementById(move).classList.remove("computerSelection")}, 800);
 }
 
 function playRound(playerSelection, computerSelection){
@@ -49,7 +61,7 @@ function playRound(playerSelection, computerSelection){
 
 function game(playerInput){
 //    for (i = 0; i < 5; i++) {
-        alert(playRound(playerInput, computerPlay()))
+        appendLog(playRound(playerInput, computerPlay()))
         round++;
     
 }
@@ -72,10 +84,14 @@ if (round >= 5) {
 }
 */
 
+function appendLog(string){
+    document.getElementById('roundLog').textContent = string;
+}
+
 function getKey(e){
-    
+    console.log(e);
 }
 
 const moves = Array.from(document.querySelectorAll('.move'));
 moves.forEach(move => move.addEventListener('click', function(){game(move.id)}));
-moves.forEach(move => move.addEventListener('keydown', function(){getKey}));
+moves.forEach(move => move.addEventListener('keydown', getKey));
