@@ -28,6 +28,11 @@ transform: scale(1.1);
 background: #22223b;
 }
 
+.keyed {
+    transform: scale(1.1);
+    background: #22223b;
+    }
+
 kbd {
     font-size: 1.5rem;
     color: #23b5d3;

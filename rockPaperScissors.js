@@ -47,16 +47,14 @@ function playRound(playerSelection, computerSelection){
     return roundResult;
 }
 
-/* retool this code block for GUI input
-function game(){
-    let playerInput;
-    for (i = 0; i < 5; i++) {
-        playerInput = prompt("ROCK, PAPER, or SCISSORS?");
-        console.log(playRound(playerInput, computerPlay()))
+function game(playerInput){
+//    for (i = 0; i < 5; i++) {
+        alert(playRound(playerInput, computerPlay()))
         round++;
-    }
+    
 }
 
+/* retool this code block for GUI input
 while (round < 5) {
     game();
 }
@@ -74,5 +72,10 @@ if (round >= 5) {
 }
 */
 
+function getKey(e){
+    
+}
+
 const moves = Array.from(document.querySelectorAll('.move'));
-moves.forEach(move => move.addEventListener('click', game(moveInput)))
+moves.forEach(move => move.addEventListener('click', function(){game(move.id)}));
+moves.forEach(move => move.addEventListener('keydown', function(){getKey}));
