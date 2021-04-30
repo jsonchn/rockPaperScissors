@@ -47,6 +47,7 @@ function playRound(playerSelection, computerSelection){
     return roundResult;
 }
 
+/* retool this code block for GUI input
 function game(){
     let playerInput;
     for (i = 0; i < 5; i++) {
@@ -71,3 +72,7 @@ if (round >= 5) {
             playerWins);
     }
 }
+*/
+
+const moves = Array.from(document.querySelectorAll('.move'));
+moves.forEach(move => move.addEventListener('click', game(moveInput)))
