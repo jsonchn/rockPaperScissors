@@ -2,12 +2,26 @@ html {
     background-color: #F2E9E4;
 }
 
+p {
+    color:#22223b;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: small;
+    line-height: 2px;
+}
+
 .moves {
     display: flex;
     flex: 1;
     align-items: center;
     justify-content: center;
-    padding-top: 10vh;
+    padding: 10vh 0vh 0vh 0vh;
+}
+
+.logBox {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
 }
 
 #roundLog {
@@ -17,6 +31,9 @@ html {
     padding: 1rem .5rem;
     width: 35rem;
     text-align: center;
+    max-height: 5rem;
+    overflow-y: hidden;
+    background: linear-gradient(transparent, #F2E9E4);
 }
 
 .move {

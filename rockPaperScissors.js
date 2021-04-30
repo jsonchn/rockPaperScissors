@@ -84,8 +84,11 @@ if (round >= 5) {
 }
 */
 
-function appendLog(string){
-    document.getElementById('roundLog').textContent = string;
+function appendLog(resultString){
+    const result = document.createElement('p');
+    result.textContent = resultString;
+    roundLog = document.getElementById('roundLog');
+    roundLog.insertBefore(result,roundLog.firstChild);
 }
 
 function getKey(e){
@@ -95,3 +98,14 @@ function getKey(e){
 const moves = Array.from(document.querySelectorAll('.move'));
 moves.forEach(move => move.addEventListener('click', function(){game(move.id)}));
 moves.forEach(move => move.addEventListener('keydown', getKey));
+
+while ((computerWins >= 5) || (playerWins >= 5)) {
+    debugger;
+    const result = document.createElement('p');
+    result.textContent = "Match over! Player: " + playerWins + "Computer: " + computerWins;
+    playerWins = 0;
+    computerWins = 0;
+    round = 0;
+    roundLog = document.getElementById('roundLog');
+    roundLog.insertBefore(result,roundLog.firstChild);
+}
